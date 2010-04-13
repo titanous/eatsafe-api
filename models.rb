@@ -1,4 +1,4 @@
-DB = Sequel.connect(ENV['DATABASE_URL'] || 'mysql://root@localhost/eatsafe')
+DB = Sequel.connect(ENV['DATABASE_URL'] || 'postgres://localhost/eatsafe')
 
 class Facility < Sequel::Model
   one_to_many :inspections

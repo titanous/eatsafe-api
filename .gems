@@ -1,3 +1,4 @@
 sinatra --version '>= 1.0'
 sequel
 json
+pg
