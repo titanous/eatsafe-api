@@ -1,4 +1,4 @@
 sinatra --version '>= 1.0'
-sequel
-json
-pg
+dm-core
+dm-serializer
+do_postgres
