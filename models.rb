@@ -45,6 +45,7 @@ class Question
   belongs_to :compliance_result
   belongs_to :compliance_category
   belongs_to :compliance_description
+  has n, :comments
 
   def category
     compliance_category.text_en
@@ -89,8 +90,9 @@ end
 class Comment
   include DataMapper::Resource
 
-  property :id, Integer, :length => 11, :key => true
   property :text_en, String, :length => 255
+
+  belongs_to :question
 end
 
 class Struct

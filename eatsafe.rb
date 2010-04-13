@@ -14,7 +14,8 @@ get '/facility/:id' do
       :relationships => {
         :questions => { 
           :exclude => [:inspection_id, :compliance_category_id, :compliance_description_id, :compliance_result_id],
-          :methods => [:category, :description, :result]
+          :methods => [:category, :description, :result],
+          :relationships => { :comments => { :exclude => [:question_id] } }
         }
       }
     }
