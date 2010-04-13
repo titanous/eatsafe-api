@@ -20,3 +20,8 @@ get '/facility/:id' do
     }
   })
 end
+
+get '/facilities/nearby' do
+  halt 400, 'lat and/or lon not provided' unless params[:lat] and params[:lon]
+  Facility.nearby(:lat => params[:lat], :lon => params[:lon], :limit => params[:limit]).to_json
+end

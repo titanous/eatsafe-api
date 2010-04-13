@@ -15,6 +15,11 @@ class Facility
   property :lon, Float
 
   has n, :inspections
+
+  def self.nearby(options)
+    query = 'SELECT *, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(?) - RADIANS(lon))) * 6371 AS distance FROM facilities ORDER BY distance ASC LIMIT ?'
+    repository(:default).adapter.select(query, options[:lat], options[:lat], options[:lon], (options[:limit] || 25))
+  end
 end
 
 class Inspection
@@ -86,4 +91,12 @@ class Comment
 
   property :id, Integer, :length => 11, :key => true
   property :text_en, String, :length => 255
+end
+
+class Struct
+  def to_json
+    hash = {}
+    each_pair { |name, value| hash[name] = value }
+    hash.to_json
+  end
 end
