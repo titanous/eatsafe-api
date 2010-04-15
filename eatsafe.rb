@@ -3,7 +3,7 @@ require 'models'
 require 'geocoder'
 
 get '/' do
-  "Ottawa EatSafe API\nSee http://github.com/titanous/eatsafe-api"
+  '<h1>Ottawa EatSafe API</h1><br>See <a href="http://github.com/titanous/eatsafe-api">http://github.com/titanous/eatsafe-api</a>'
 end
 
 get '/facility/:id' do
