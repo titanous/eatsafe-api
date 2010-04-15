@@ -23,6 +23,11 @@ class Facility
     query = 'SELECT *, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(?) - RADIANS(lon))) * 6371 AS distance FROM facilities ORDER BY distance ASC LIMIT ?'
     repository(:default).adapter.select(query, options[:lat], options[:lat], options[:lon], (options[:limit] || 25))
   end
+
+  def self.search(term)
+    term = '%' + term + '%'
+    all(:conditions => ['name ILIKE ?', term], :limit => 100)
+  end
 end
 
 class Inspection

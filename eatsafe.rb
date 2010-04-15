@@ -26,3 +26,8 @@ get '/facilities/nearby' do
   lat, lon = params[:address] ? geocode(params[:address]) : [params[:lat], params[:lon]]
   Facility.nearby(:lat => lat, :lon => lon, :limit => params[:limit]).to_json
 end
+
+get '/facilities/search' do
+ halt 400, 'search term no provided' unless params[:q]
+ Facility.search(params[:q]).to_json
+end
