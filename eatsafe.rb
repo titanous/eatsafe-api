@@ -1,6 +1,4 @@
 require 'sinatra'
-require 'dm-core'
-require 'dm-serializer'
 require 'models'
 
 get '/' do

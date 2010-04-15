@@ -1,3 +1,6 @@
+require 'dm-core'
+require 'dm-serializer'
+
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/eatsafe')
 
 class Facility
