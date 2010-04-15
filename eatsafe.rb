@@ -3,7 +3,7 @@ require 'models'
 require 'geocoder'
 
 get '/' do
-  "Ottawa EatSafe API"
+  "Ottawa EatSafe API\nSee http://github.com/titanous/eatsafe-api"
 end
 
 get '/facility/:id' do
