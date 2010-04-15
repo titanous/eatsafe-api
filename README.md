@@ -1,7 +1,6 @@
 # EatSafe API
 
-A simple little app that runs on Heroku, and describes the safety of Ottawa's
-restaurants in JSON.
+A simple little app that describes the safety of Ottawa's restaurants in JSON.
 
 ## Usage
 
