@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'models'
+require 'geocoder'
 
 get '/' do
   "Ottawa EatSafe API"
@@ -21,6 +22,7 @@ get '/facility/:id' do
 end
 
 get '/facilities/nearby' do
-  halt 400, 'lat and/or lon not provided' unless params[:lat] and params[:lon]
-  Facility.nearby(:lat => params[:lat], :lon => params[:lon], :limit => params[:limit]).to_json
+  halt 400, 'lat/lon or address not provided' unless (params[:lat] and params[:lon]) or params[:address]
+  lat, lon = params[:address] ? geocode(params[:address]) : [params[:lat], params[:lon]]
+  Facility.nearby(:lat => lat, :lon => lon, :limit => params[:limit]).to_json
 end
