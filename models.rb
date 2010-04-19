@@ -18,6 +18,11 @@ class Facility
   property :lon, Float
 
   has n, :inspections
+  belongs_to, :facility_category
+
+  def category
+    facility_category.text_en
+  end
 
   def self.nearby(options)
     query = 'SELECT *, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(?) - RADIANS(lon))) * 6371 AS distance FROM facilities ORDER BY distance ASC LIMIT ?'
@@ -46,7 +51,7 @@ end
 class Question
   include DataMapper::Resource
 
-  property :id, Integer, :length => 11, :key => true
+  property :id, Serial
   property :sort, Integer, :length => 11
 
   belongs_to :inspection
@@ -93,6 +98,7 @@ class ComplianceDescription
   property :text_en, String, :length => 255
 
   has n, :questions
+  belongs_to :risk_level
 end
 
 class Comment
@@ -101,6 +107,22 @@ class Comment
   property :text_en, String, :length => 255
 
   belongs_to :question
+end
+
+class RiskLevel
+  include DataMapper::Resource
+
+  property :text_en, String, :length => 255
+
+  has n, :compliance_descriptions
+end
+
+class FacilityCategory
+  include Datamapper::Resource
+
+  property :text_en, String, :length => 255
+
+  has n, :facilities
 end
 
 class Struct

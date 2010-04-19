@@ -1,0 +1,327 @@
+<response>
+  <result numFound="1" start="0">
+    <doc>
+      <str name="app_id">fsi</str>
+      <str name="fs_fa_en">Ottawa East</str>
+      <str name="fs_fa_fr">Ottawa Est</str>
+      <str name="fs_facd">OTE</str>
+      <str name="fs_faid">
+      F84E0978-3353-43F7-874A-B2D87F710EFE</str>
+      <str name="fs_fcr">YES</str>
+      <str name="fs_fcr_date">2010-02-24 00:00:00.000</str>
+      <str name="fs_fdid">
+      B789A388-ED35-490D-A68F-518EA3893A88</str>
+      <str name="fs_fefd">2009-08-07 00:00:00.000</str>
+      <str name="fs_fmid">
+      E14B2FFD-E022-4998-8F02-EF535DCA6448</str>
+      <str name="fs_fnm">1 FOR 1 PIZZA</str>
+      <str name="fs_fsc">OTTAWA</str>
+      <str name="fs_fsd" />
+      <str name="fs_fsf">1729</str>
+      <str name="fs_fsp_en">Ontario</str>
+      <str name="fs_fsp_fr">Ontario</str>
+      <str name="fs_fspc">K1V 7Z5</str>
+      <str name="fs_fspcd">ON</str>
+      <str name="fs_fsph">613-737-0011</str>
+      <str name="fs_fspid">
+      B7523499-A237-11D3-BAB1-005004AE1145</str>
+      <str name="fs_fss">BANK ST</str>
+      <str name="fs_fst" />
+      <str name="fs_fstcd" />
+      <str name="fs_fstic">F</str>
+      <str name="fs_fstid">
+      ABD32301-9615-4094-9D98-14B21360A7F8</str>
+      <str name="fs_fstlu">2008-12-19 11:44:42.487</str>
+      <str name="fs_fsun">107</str>
+      <str name="fs_ft_en">Food Take Out</str>
+      <str name="fs_ft_fr">Plats &#195;&#160; emporter</str>
+      <str name="fs_ftcd">FGTO</str>
+      <str name="fs_ftcd_en">FGTO###Food Take Out</str>
+      <str name="fs_ftcd_fr">FGTO###Food Take Out</str>
+      <str name="fs_ftid">
+      A9BDC642-4217-4210-AC90-BB29A09E09DF</str>
+      <str name="fs_fw_en">Alta Vista</str>
+      <str name="fs_fw_fr">Alta Vista</str>
+      <str name="fs_fwcd">OTEAV</str>
+      <str name="fs_fwcd_en">OTEAV###Alta Vista</str>
+      <str name="fs_fwcd_fr">OTEAV###Alta Vista</str>
+      <str name="fs_fwid">
+      DAF66B58-3B44-467D-8FF7-F8E16AD9D565</str>
+      <str name="fs_insp_sort">0</str>
+      <str name="id">fsi0</str>
+      <arr name="fs_insp_en">
+        <inspection inspectionid="78C5BA8B-DAB1-4AAF-B47A-73B2F811E91B"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2010-02-24 00:00:00.000" isincompliance="1"
+        closuredate="2010-02-24 12:59:08.000" reportnumber="6">
+        </inspection>
+        <inspection inspectionid="0C8E5B6F-61A3-4539-89C3-17D6C618A9B4"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2010-02-03 00:00:00.000" isincompliance=""
+        closuredate="2010-02-03 14:53:58.000" reportnumber="5">
+          <question sort="4020" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="C"
+          riskleveltext="Critical" compliancecategorycode="FS"
+          compliancecategorytext="Food Safety"
+          compliancedecriptioncode="FPB">
+            <qtext>Food protected from potential contamination and
+            adulteration</qtext>
+          </question>
+          <question sort="6030" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="EQA">
+            <qtext>Equipment, non-food contact surfaces and linen
+            are maintained, designed, constructed, installed and
+            accessible for cleaning</qtext>
+          </question>
+          <question sort="11050" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="LAB">
+            <qtext>Lighting adequate for food preparation and
+            cleaning</qtext>
+          </question>
+        </inspection>
+        <inspection inspectionid="8B0FDCBF-C56D-4818-84BE-A1CCBF8B49B1"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2009-09-02 00:00:00.000" isincompliance=""
+        closuredate="2009-09-02 11:44:36.000" reportnumber="4">
+          <question sort="6010" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="PUA">
+            <qtext>Proper use and storage of clean utensils
+            (including single service utensils)</qtext>
+            <comment>Store utensils in manner preventing
+            contamination</comment>
+          </question>
+          <question sort="11010" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="FWA">
+            <qtext>Floors, walls, and ceilings clean and in good
+            repair</qtext>
+            <comment>Cleaning required around, under, and behind
+            kitchen equipment, counters, and baseboards</comment>
+          </question>
+        </inspection>
+        <inspection inspectionid="1645D22A-9256-42CD-B366-98078E6E70C4"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2009-08-14 00:00:00.000" isincompliance=""
+        closuredate="2009-08-14 15:05:23.000" reportnumber="3">
+          <question sort="3020" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="SBB">
+            <qtext>Separate hand washing basin provided for food
+            handlers</qtext>
+            <comment>Provide hand washing basin in a convenient
+            location in the food preparation area</comment>
+          </question>
+        </inspection>
+        <inspection inspectionid="3B4B5C35-69EA-48FA-932F-8B862D7EB8A4"
+        facilitydetailid="5B853C04-88A0-43AD-BFDC-35072E348129"
+        inspectiondate="2009-08-07 00:00:00.000" isincompliance=""
+        closuredate="2009-08-07 14:28:22.000" reportnumber="2">
+          <question sort="3020" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="SBB">
+            <qtext>Separate hand washing basin provided for food
+            handlers</qtext>
+            <comment>Provide hand washing basin in a convenient
+            location in the food preparation area</comment>
+          </question>
+          <question sort="4020" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="C"
+          riskleveltext="Critical" compliancecategorycode="FS"
+          compliancecategorytext="Food Safety"
+          compliancedecriptioncode="FPB">
+            <qtext>Food protected from potential contamination and
+            adulteration</qtext>
+            <comment>Ensure all food is protected from potential
+            contamination and adulteration</comment>
+          </question>
+          <question sort="6030" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="EQA">
+            <qtext>Equipment, non-food contact surfaces and linen
+            are maintained, designed, constructed, installed and
+            accessible for cleaning</qtext>
+          </question>
+          <question sort="9010" complianceresultcode="NO"
+          complianceresulttext="Not in Compliance" risklevelid="N"
+          riskleveltext="Non-critical" compliancecategorycode="SD"
+          compliancecategorytext="Sanitation, Design and Maintenance"
+          compliancedecriptioncode="GRA">
+            <qtext>Frequency of garbage removal adequate to
+            maintain the premises in a sanitary condition</qtext>
+          </question>
+        </inspection>
+        <inspection inspectionid="B39F11BC-999D-4715-A0D0-2400807618A3"
+        facilitydetailid="2204E1C6-06FB-43CC-B769-D5C794A51E99"
+        inspectiondate="2009-01-21 00:00:00.000" isincompliance="1"
+        closuredate="2009-01-21 11:46:59.000" reportnumber="1">
+        </inspection>
+      </arr>
+      <arr name="fs_insp_fr">
+        <inspection inspectionid="78C5BA8B-DAB1-4AAF-B47A-73B2F811E91B"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2010-02-24 00:00:00.000" isincompliance="1"
+        closuredate="2010-02-24 12:59:08.000" reportnumber="6">
+        </inspection>
+        <inspection inspectionid="0C8E5B6F-61A3-4539-89C3-17D6C618A9B4"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2010-02-03 00:00:00.000" isincompliance=""
+        closuredate="2010-02-03 14:53:58.000" reportnumber="5">
+          <question sort="4020" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="C"
+          riskleveltext="Critique" compliancecategorycode="FS"
+          compliancecategorytext="Salubrit&#195;&#169; des aliments"
+          compliancedecriptioncode="FPB">
+            <qtext>La nourriture est prot&#195;&#169;g&#195;&#169;e
+            contre une &#195;&#169;ventuelle falsification ou
+            contamination</qtext>
+          </question>
+          <question sort="6030" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="EQA">
+            <qtext>L'&#195;&#169;quipement, les surfaces qui ne
+            sont pas en contact avec la nourriture et le linge de
+            maison sont bien entretenus, con&#195;&#167;us,
+            construits, install&#195;&#169;s et faciles
+            d'acc&#195;&#168;s pour le nettoyage</qtext>
+          </question>
+          <question sort="11050" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="LAB">
+            <qtext>&#195;&#8240;clairage ad&#195;&#169;quat pour la
+            pr&#195;&#169;paration des aliments et le
+            nettoyage</qtext>
+          </question>
+        </inspection>
+        <inspection inspectionid="8B0FDCBF-C56D-4818-84BE-A1CCBF8B49B1"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2009-09-02 00:00:00.000" isincompliance=""
+        closuredate="2009-09-02 11:44:36.000" reportnumber="4">
+          <question sort="6010" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="PUA">
+            <qtext>Utilisation et entreposage appropri&#195;&#169;s
+            des ustensiles propres (incluant les ustensiles
+            &#195;&#160; usage unique)</qtext>
+            <comment>Ranger les ustensiles de mani&#195;&#168;re
+            &#195;&#160; &#195;&#169;viter toute
+            contamination</comment>
+          </question>
+          <question sort="11010" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="FWA">
+            <qtext>Les planchers, les murs et les plafonds sont
+            propres et en bon &#195;&#169;tat</qtext>
+            <comment>Nettoyage requis autour, sous et
+            derri&#195;&#168;re l'&#195;&#169;quipement de cuisine,
+            les comptoirs et les plinthes</comment>
+          </question>
+        </inspection>
+        <inspection inspectionid="1645D22A-9256-42CD-B366-98078E6E70C4"
+        facilitydetailid="B789A388-ED35-490D-A68F-518EA3893A88"
+        inspectiondate="2009-08-14 00:00:00.000" isincompliance=""
+        closuredate="2009-08-14 15:05:23.000" reportnumber="3">
+          <question sort="3020" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="SBB">
+            <qtext>Un lavabo r&#195;&#169;serv&#195;&#169; au
+            lavage des mains est mis &#195;&#160; la disposition
+            des pr&#195;&#169;pos&#195;&#169;s &#195;&#160; la
+            manipulation des aliments</qtext>
+            <comment>Installer un lavabo pour se laver les mains
+            dans un endroit pratique de l'aire de
+            pr&#195;&#169;paration des aliments</comment>
+          </question>
+        </inspection>
+        <inspection inspectionid="3B4B5C35-69EA-48FA-932F-8B862D7EB8A4"
+        facilitydetailid="5B853C04-88A0-43AD-BFDC-35072E348129"
+        inspectiondate="2009-08-07 00:00:00.000" isincompliance=""
+        closuredate="2009-08-07 14:28:22.000" reportnumber="2">
+          <question sort="3020" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="SBB">
+            <qtext>Un lavabo r&#195;&#169;serv&#195;&#169; au
+            lavage des mains est mis &#195;&#160; la disposition
+            des pr&#195;&#169;pos&#195;&#169;s &#195;&#160; la
+            manipulation des aliments</qtext>
+            <comment>Installer un lavabo pour se laver les mains
+            dans un endroit pratique de l'aire de
+            pr&#195;&#169;paration des aliments</comment>
+          </question>
+          <question sort="4020" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="C"
+          riskleveltext="Critique" compliancecategorycode="FS"
+          compliancecategorytext="Salubrit&#195;&#169; des aliments"
+          compliancedecriptioncode="FPB">
+            <qtext>La nourriture est prot&#195;&#169;g&#195;&#169;e
+            contre une &#195;&#169;ventuelle falsification ou
+            contamination</qtext>
+            <comment>Veiller &#195;&#160; ce que tous les aliments
+            soient prot&#195;&#169;g&#195;&#169;s contre les
+            risques de contamination ou
+            d'alt&#195;&#169;ration</comment>
+          </question>
+          <question sort="6030" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="EQA">
+            <qtext>L'&#195;&#169;quipement, les surfaces qui ne
+            sont pas en contact avec la nourriture et le linge de
+            maison sont bien entretenus, con&#195;&#167;us,
+            construits, install&#195;&#169;s et faciles
+            d'acc&#195;&#168;s pour le nettoyage</qtext>
+          </question>
+          <question sort="9010" complianceresultcode="NO"
+          complianceresulttext="Non conforme" risklevelid="N"
+          riskleveltext="Non critique" compliancecategorycode="SD"
+          compliancecategorytext="Assainissement, Conception et entretien"
+          compliancedecriptioncode="GRA">
+            <qtext>L'enl&#195;&#168;vement des ordures s'effectue
+            assez fr&#195;&#169;quemment pour maintenir une bonne
+            hygi&#195;&#168;ne des lieux</qtext>
+          </question>
+        </inspection>
+        <inspection inspectionid="B39F11BC-999D-4715-A0D0-2400807618A3"
+        facilitydetailid="2204E1C6-06FB-43CC-B769-D5C794A51E99"
+        inspectiondate="2009-01-21 00:00:00.000" isincompliance="1"
+        closuredate="2009-01-21 11:46:59.000" reportnumber="1">
+        </inspection>
+      </arr>
+    </doc>
+    <urls>
+      <query>
+      q.pl?ss=details%5Fen&amp;sq_fs_fdid=B789A388%2DED35%2D490D%2DA68F%2D518EA3893A88</query>
+      <langtoggle>
+      q.pl?ss=details%5Ffr&amp;sq_fs_fdid=B789A388%2DED35%2D490D%2DA68F%2D518EA3893A88</langtoggle>
+    </urls>
+  </result>
+</response>
