@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'dm-serializer'
 
+DataMapper::Logger.new(STDOUT, :debug)
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/eatsafe')
 
 class Facility
@@ -18,7 +19,7 @@ class Facility
   property :lon, Float
 
   has n, :inspections
-  belongs_to, :facility_category
+  belongs_to :facility_category
 
   def category
     facility_category.text_en
@@ -104,6 +105,7 @@ end
 class Comment
   include DataMapper::Resource
 
+  property :id, Serial
   property :text_en, String, :length => 255
 
   belongs_to :question
@@ -112,14 +114,16 @@ end
 class RiskLevel
   include DataMapper::Resource
 
+  property :id, String, :length => 2, :key => true
   property :text_en, String, :length => 255
 
   has n, :compliance_descriptions
 end
 
 class FacilityCategory
-  include Datamapper::Resource
+  include DataMapper::Resource
 
+  property :id, String, :length => 5, :key => true
   property :text_en, String, :length => 255
 
   has n, :facilities
