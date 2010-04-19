@@ -1,4 +1,6 @@
 sinatra --version '>= 1.0'
 dm-core
 dm-serializer
+dm-timestamps
 do_postgres
+nokogiri

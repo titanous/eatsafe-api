@@ -1,7 +1,7 @@
 require 'dm-core'
 require 'dm-serializer'
+require 'dm-timestamps'
 
-DataMapper::Logger.new(STDOUT, :debug)
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/eatsafe')
 
 class Facility
@@ -17,6 +17,9 @@ class Facility
   property :city, String, :length => 35
   property :lat, Float
   property :lon, Float
+
+  property :created_at, DateTime
+  property :updated_at, DateTime
 
   has n, :inspections
   belongs_to :facility_category
@@ -44,6 +47,9 @@ class Inspection
   property :in_compliance, Boolean
   property :closure_date, DateTime
   property :report_number, Integer, :length => 11
+
+  property :created_at, DateTime
+  property :updated_at, DateTime
 
   belongs_to :facility
   has n, :questions

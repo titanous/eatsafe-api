@@ -13,40 +13,61 @@ FACILITY_BASE_URL = "http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=details
 @risk_levels = {}
 @categories = {}
 
-@first_page = Nokogiri::XML(open(INDEX_BASE_URL))
-total_facilities = @first_page.xpath('//result')[0]['numFound'].to_i
-@total_pages = total_facilities / 10 + (total_facilities % 10 == 0 ? 0 : 1)
 
-@log.info "EatSafe Scraper started. #{total_facilities} facilities to process."
+def scrape(full=true)
+  if full
+    DataMapper.auto_migrate!
+    base_url = INDEX_BASE_URL + ';sort=fs_fcr_date%20desc'
+    @log.info "EatSafe full scrape started."
+  else
+    base_url = INDEX_BASE_URL
+    @log.info "EatSafe incremental scrape started."
+  end
 
-def scrape
-  DataMapper.auto_migrate!
+  first_page = Nokogiri::XML(open(base_url))
+  total_facilities = first_page.xpath('//result')[0]['numFound'].to_i
+  total_pages = total_facilities / 10 + (total_facilities % 10 == 0 ? 0 : 1)
 
   @log.info "Scraping index page 1"
-  scrape_index_page(@first_page)
+  scrape_index_page(first_page)
 
-  2.upto(2).each do |page|
+  2.upto(total_pages).each do |page|
     @log.info "Scraping index page #{page}"
-    url = INDEX_BASE_URL + ";start=#{page*10}"
-    scrape_index_page(Nokogiri::XML(open(url)))
+    url = base_url + ";start=#{page*10}"
+    break if scrape_index_page(Nokogiri::XML(open(url)), full)
   end
 
-  @compliance_results.each { |id, text| ComplianceResult.create(:id => id, :text_en => text).save }
-  @compliance_categories.each { |id, text| ComplianceCategory.create(:id => id, :text_en => text).save }
-  @compliance_descriptions.each { |id, values| ComplianceDescription.create(values.merge(:id => id)).save }
-  @risk_levels.each { |id, text| RiskLevel.create(:id => id, :text_en => text).save }
+  @compliance_results.each { |id, text| ComplianceResult.first_or_create(:id => id).update(:text_en => text) }
+  @compliance_categories.each { |id, text| ComplianceCategory.first_or_create(:id => id).update(:text_en => text) }
+  @compliance_descriptions.each { |id, values| ComplianceDescription.first_or_create({:id => id}, values).update(values) }
+  @risk_levels.each { |id, text| RiskLevel.first_or_create(:id => id).update(:text_en => text) }
+
+  @log.info "EatSafe scrape complete."
 end
 
-def scrape_index_page(index)
+def scrape_index_page(index, full=true)
+  incremental_done = false
+
   index.xpath('//doc').each do |facility_xml|
     facility_id = facility_xml.str('fdid')
+
+    # check if we have reached the end of the new inspections
+    if !full
+      last_update = Facility.get(facility_id).updated_at.to_date
+      if last_update and Time.parse(facility_xml.str('fcr_date')).to_date < last_update
+        incremental_done = true
+        break
+      end
+    end
     scrape_facility_page(facility_id)
   end
+  incremental_done # have we reached the end of the new inspections?
 end
 
 def scrape_facility_page(facility_id)
   facility_xml = Nokogiri::XML(open(FACILITY_BASE_URL + facility_id)).at_xpath('//doc')
   facility = {:id => facility_id}
+  Facility.get(facility_id).destroy rescue true
 
   facility[:name] = facility_xml.str('fnm')
   facility[:street_number] = facility_xml.str('fsf')
@@ -67,6 +88,8 @@ def scrape_facility_page(facility_id)
     inspection[:inspection_date] = Date.parse(inspection_xml['inspectiondate'])
     inspection[:closure_date] = Time.parse(inspection_xml['closuredate'])
     inspection[:in_compliance] = inspection_xml['insincompliance'] == '1' ? true : false
+
+    Inspection.get(inspection[:id]).destroy rescue true
 
     inspection_xml.xpath('./question').each do |question_xml|
       question = {:inspection_id => inspection[:id]}
@@ -91,10 +114,10 @@ def scrape_facility_page(facility_id)
       q.save
     end
 
-    Inspection.create(inspection).save
+    Inspection.create(inspection)
   end
 
-  Facility.create(facility).save
+  Facility.create(facility)
 end
 
 def cleanup_phone(phone)
@@ -113,5 +136,3 @@ class Nokogiri::XML::Node
     at_xpath("./arr[@name='fs_#{attribute}']")
   end
 end
-
-scrape
