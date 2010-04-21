@@ -1,0 +1,16 @@
+common: &default_settings
+  license_key: "<%= ENV['NEW_RELIC_LICENSE_KEY'] %>"
+  app_name: "<%= ENV['NEW_RELIC_APPNAME'] %>"
+  monitor_mode: false
+  developer_mode: false
+  log_level: info
+  apdex_t: 0.5
+  capture_params: false
+  transaction_tracer:
+    enabled: false
+  error_collector:
+    enabled: false
+
+production:
+  <<: *default_settings
+  monitor_mode: true

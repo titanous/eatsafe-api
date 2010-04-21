@@ -5,3 +5,4 @@ dm-timestamps
 do_postgres
 nokogiri
 exceptional
+newrelic_rpm

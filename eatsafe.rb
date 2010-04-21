@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'exceptional'
+require 'newrelic_rpm'
 require 'models'
 require 'geocoder'
 
