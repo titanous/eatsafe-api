@@ -16,3 +16,12 @@ namespace :scrape do
     geocode
   end
 end
+
+task :cron do
+  if Date.today.wday == 0 # Sunday
+    Rake::Task['scrape:full'].execute
+  else
+    Rake::Task['scrape:incr'].execute
+  end
+  Rake::Task['scrape:geocode'].execute
+end
