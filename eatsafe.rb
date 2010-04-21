@@ -9,11 +9,12 @@ end
 get '/facility/:id' do
   Facility.get(params[:id]).to_json(:relationships => { 
     :inspections => {
-      :exclude => :facility_id,
+      :exclude => [:facility_id, :created_at],
+      :methods => [:category],
       :relationships => {
         :questions => { 
-          :exclude => [:inspection_id, :compliance_category_id, :compliance_description_id, :compliance_result_id],
-          :methods => [:category, :description, :result],
+          :exclude => [:id, :inspection_id, :compliance_category_id, :compliance_description_id, :compliance_result_id, :created_at, :updated_at],
+          :methods => [:category, :description, :result, :risk_level],
           :relationships => { :comments => { :exclude => [:question_id] } }
         }
       }
@@ -24,7 +25,7 @@ end
 get '/facilities/nearby' do
   halt 400, 'lat/lon or address not provided' unless (params[:lat] and params[:lon]) or params[:address]
   lat, lon = params[:address] ? geocode(params[:address]) : [params[:lat], params[:lon]]
-  Facility.nearby(:lat => lat, :lon => lon, :limit => params[:limit]).to_json
+  Facility.nearby(:lat => lat, :lon => lon, :filter => params[:q], :limit => params[:limit]).to_json
 end
 
 get '/facilities/search' do

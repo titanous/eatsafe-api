@@ -29,8 +29,8 @@ class Facility
   end
 
   def self.nearby(options)
-    query = 'SELECT *, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(?) - RADIANS(lon))) * 6371 AS distance FROM facilities ORDER BY distance ASC LIMIT ?'
-    repository(:default).adapter.select(query, options[:lat], options[:lat], options[:lon], (options[:limit] || 25))
+    query = 'SELECT *, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(?) - RADIANS(lon))) * 6371 AS distance FROM facilities WHERE name ILIKE ? ORDER BY distance ASC LIMIT ?'
+    repository(:default).adapter.select(query, options[:lat], options[:lat], options[:lon], '%' + (options[:filter] || '') + '%', (options[:limit] || 25))
   end
 
   def self.search(term)
@@ -74,6 +74,10 @@ class Question
 
   def result
     compliance_result.text_en
+  end
+
+  def risk_level
+    compliance_description.risk_level.text_en
   end
 end
 

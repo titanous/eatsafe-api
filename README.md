@@ -13,13 +13,13 @@ The complete facility record including location and inspections.
 ### Nearby
     /facilities/nearby
 A list of facilities near the location given. The location can either be
-coordinates given as decimals in `lat` and `lon` or an `address`. A `limit` can
-also be provided (defaults to 25). The approximate distance in kilometers is
-provided for each facility.
+coordinates given as decimals in `lat` and `lon` or an `address`. A search term
+in `q` can be used to filter the query. A `limit` can also be provided (defaults
+to 25). The approximate distance in kilometers is provided for each facility.
 
 [http://eatsafe-api.heroku.com/facilities/nearby?lat=45.4437&lon=75.6932&limit=10](http://eatsafe-api.heroku.com/facilities/nearby?lat=45.4437&lon=75.6932&limit=10)
 
-[http://eatsafe-api.heroku.com/facilities/nearby?address=24%20Sussex,%20Ottawa](http://eatsafe-api.heroku.com/facilities/nearby?address=24%20Sussex,%20Ottawa)
+[http://eatsafe-api.heroku.com/facilities/nearby?address=24%20Sussex,%20Ottawa&q=tim%20hortons](http://eatsafe-api.heroku.com/facilities/nearby?address=24%20Sussex,%20Ottawa)
 
 ### Search
     /facilities/search
