@@ -1,6 +1,9 @@
 require 'logger'
 require 'nokogiri'
 require 'open-uri'
+require 'geocoder'
+require 'dm-core'
+DataMapper::Logger.new($stdout, :debug)
 require 'models'
 
 INDEX_BASE_URL = 'http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=results_en&qt=fsi_s&sq_app_id=fsi'
@@ -16,7 +19,7 @@ FACILITY_BASE_URL = "http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=details
 
 def scrape(full=true)
   if full
-    DataMapper.auto_migrate!
+    [Facility, Inspection, Question, Comment, ComplianceResult, ComplianceCategory, ComplianceDescription, RiskLevel, FacilityCategory].each { |m| m.auto_migrate! }
     base_url = INDEX_BASE_URL + ';sort=fs_fcr_date%20desc'
     @log.info "EatSafe full scrape started."
   else
@@ -125,6 +128,19 @@ def cleanup_phone(phone)
   phone = '613' + phone if phone.length == 7 # add 613 if not already there
   phone.sub!(/(\d{3})(\d{3})(\d{4})/, '\1-\2-\3') # format the number like 613-555-1212
   return phone.length == 12 ? phone : nil # return phone number unless the length is wrong
+end
+
+def geocode
+  @log.info "Eatsafe Geocoder started"
+  Facility.all(:lat => nil).each do |facility|
+    if coords = FacilityCoordinate.get(facility.id)
+      facility.update(:lat => coords.lat, :lon => coords.lon)
+    else
+      lat, lon = yahoo_geocode(:street => "#{facility.street_number} #{facility.street_name}", :city => facility.city)
+      facility.update(:lat => lat, :lon => lon)
+      FacilityCoordinate.create(:id => facility.id, :lat => lat, :lon => lon)
+    end
+  end
 end
 
 class Nokogiri::XML::Node
