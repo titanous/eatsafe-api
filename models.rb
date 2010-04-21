@@ -2,7 +2,6 @@ require 'dm-core'
 require 'dm-serializer'
 require 'dm-timestamps'
 
-DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/eatsafe')
 
 class Facility

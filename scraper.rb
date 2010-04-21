@@ -136,7 +136,12 @@ def geocode
     if coords = FacilityCoordinate.get(facility.id)
       facility.update(:lat => coords.lat, :lon => coords.lon)
     else
-      lat, lon = yahoo_geocode(:street => "#{facility.street_number} #{facility.street_name}", :city => facility.city)
+      begin
+        lat, lon = yahoo_geocode(:street => "#{facility.street_number} #{facility.street_name}", :city => facility.city)
+      rescue
+        sleep(5)
+        next
+      end
       facility.update(:lat => lat, :lon => lon)
       FacilityCoordinate.create(:id => facility.id, :lat => lat, :lon => lon)
     end
