@@ -1,6 +1,16 @@
 require 'sinatra'
+require 'exceptional'
 require 'models'
 require 'geocoder'
+
+configure :production do
+  set :raise_errors, false
+  Exceptional.configure ENV['EXCEPTIONAL_API_KEY']
+  Exceptional::Remote.startup_announce(::Exceptional::ApplicationEnvironment.to_hash('sinatra'))
+  error do
+    Exceptional::Catcher.handle_with_rack(request.env['sinatra.error'], request.env, request)
+  end
+end
 
 get '/' do
   '<h1>Ottawa EatSafe API</h1><br>See <a href="http://github.com/titanous/eatsafe-api">http://github.com/titanous/eatsafe-api</a>'

@@ -4,3 +4,4 @@ dm-serializer
 dm-timestamps
 do_postgres
 nokogiri
+exceptional
