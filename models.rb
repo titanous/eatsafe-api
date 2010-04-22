@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'dm-serializer'
 require 'dm-timestamps'
+require 'monkeys'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/eatsafe')
 
@@ -30,7 +31,8 @@ class Facility
 
   def self.nearby(options)
     query = 'SELECT *, ACOS(SIN(RADIANS(lat)) * SIN(RADIANS(?)) + COS(RADIANS(lat)) * COS(RADIANS(?)) * COS(RADIANS(?) - RADIANS(lon))) * 6371 AS distance FROM facilities WHERE name ILIKE ? ORDER BY distance ASC LIMIT ?'
-    repository(:default).adapter.select(query, options[:lat], options[:lat], options[:lon], '%' + (options[:filter] || '') + '%', (options[:limit] || 25))
+    results = repository(:default).adapter.select(query, options[:lat], options[:lat], options[:lon], '%' + (options[:filter] || '') + '%', (options[:limit] || 25))
+    results.each { |r| r.distance = r.distance.round_to(4) }
   end
 
   def self.search(term)
@@ -144,12 +146,4 @@ class FacilityCoordinate
   property :lon, Float
 
   property :created_at, DateTime
-end
-
-class Struct
-  def to_json
-    hash = {}
-    each_pair { |name, value| hash[name] = value }
-    hash.to_json
-  end
 end
