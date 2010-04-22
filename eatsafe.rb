@@ -18,19 +18,21 @@ get '/' do
 end
 
 get '/facility/:id' do
-  Facility.get(params[:id]).to_json(:relationships => { 
-    :inspections => {
-      :exclude => [:facility_id, :created_at],
-      :methods => [:category],
-      :relationships => {
-        :questions => { 
-          :exclude => [:id, :inspection_id, :compliance_category_id, :compliance_description_id, :compliance_result_id, :created_at, :updated_at],
-          :methods => [:category, :description, :result, :risk_level],
-          :relationships => { :comments => { :exclude => [:question_id] } }
+  Facility.get(params[:id]).to_json(
+    :relationships => { 
+      :inspections => {
+        :exclude => [:facility_id],
+        :relationships => {
+          :questions => { 
+            :exclude => [:id, :inspection_id, :compliance_category_id, :compliance_description_id, :compliance_result_id, :created_at, :updated_at],
+            :methods => [:category, :description, :result, :risk_level],
+            :relationships => { :comments => { :exclude => [:question_id] } }
+          }
         }
       }
-    }
-  })
+    },
+    :methods => [:category]
+  )
 end
 
 get '/facilities/nearby' do

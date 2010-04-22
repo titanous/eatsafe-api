@@ -44,6 +44,7 @@ def scrape(full=true)
   @compliance_categories.each { |id, text| ComplianceCategory.first_or_create(:id => id).update(:text_en => text) }
   @compliance_descriptions.each { |id, values| ComplianceDescription.first_or_create({:id => id}, values).update(values) }
   @risk_levels.each { |id, text| RiskLevel.first_or_create(:id => id).update(:text_en => text) }
+  @categories.each { |id, text| FacilityCategory.first_or_create(:id => id).update(:text_en => text) }
 
   @log.info "EatSafe scrape complete."
 end
@@ -81,7 +82,7 @@ def scrape_facility_page(facility_id)
   facility[:phone] = cleanup_phone(facility_xml.str('fsph'))
   facility[:facility_category_id] = facility_xml.str('ftcd')
 
-  @categories[facility[:category_id]] = facility_xml.str('ft_en')
+  @categories[facility[:facility_category_id]] = facility_xml.str('ft_en')
 
   facility_xml.arr('insp_en').xpath('./inspection').each do |inspection_xml|
     inspection = {:facility_id => facility_id}
