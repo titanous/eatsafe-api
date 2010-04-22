@@ -52,6 +52,8 @@ class Inspection
 
   belongs_to :facility
   has n, :questions
+
+  default_scope(:default).update(:order => [:inspection_date.desc])
 end
 
 class Question
@@ -65,6 +67,8 @@ class Question
   belongs_to :compliance_category
   belongs_to :compliance_description
   has n, :comments
+
+  default_scope(:default).update(:order => [:sort.asc])
 
   def category
     compliance_category.text_en
