@@ -20,10 +20,10 @@ FACILITY_BASE_URL = "http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=details
 def scrape(full=true)
   if full
     [Facility, Inspection, Question, Comment, ComplianceResult, ComplianceCategory, ComplianceDescription, RiskLevel, FacilityCategory].each { |m| m.auto_migrate! }
-    base_url = INDEX_BASE_URL + ';sort=fs_fcr_date%20desc'
+    base_url = INDEX_BASE_URL
     @log.info "EatSafe full scrape started."
   else
-    base_url = INDEX_BASE_URL
+    base_url = INDEX_BASE_URL + ';sort=fs_fcr_date%20desc'
     @log.info "EatSafe incremental scrape started."
   end
 
@@ -42,8 +42,13 @@ def scrape(full=true)
 
   @compliance_results.each { |id, text| ComplianceResult.first_or_create(:id => id).update(:text_en => text) }
   @compliance_categories.each { |id, text| ComplianceCategory.first_or_create(:id => id).update(:text_en => text) }
-  @compliance_descriptions.each { |id, values| ComplianceDescription.first_or_create({:id => id}, values).update(values) }
   @risk_levels.each { |id, text| RiskLevel.first_or_create(:id => id).update(:text_en => text) }
+  @compliance_descriptions.each do |id, values|
+    risk_level_id = values.delete(:risk_level_id)
+    compliance_description = ComplianceDescription.first_or_create(:id => id)
+    compliance_description.update(values)
+    compliance_description.risk_level = RiskLevel.get(risk_level_id)
+  end
   @categories.each { |id, text| FacilityCategory.first_or_create(:id => id).update(:text_en => text) }
 
   @log.info "EatSafe scrape complete."
@@ -56,8 +61,8 @@ def scrape_index_page(index, full=true)
     facility_id = facility_xml.str('fdid')
 
     # check if we have reached the end of the new inspections
-    if !full
-      last_update = Facility.get(facility_id).updated_at.to_date
+    if !full and facility = Facility.get(facility_id)
+      last_update = facility.updated_at.to_date
       if last_update and Time.parse(facility_xml.str('fcr_date')).to_date < last_update
         incremental_done = true
         break
