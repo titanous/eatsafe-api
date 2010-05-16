@@ -45,9 +45,8 @@ def scrape(full=true)
   @risk_levels.each { |id, text| RiskLevel.first_or_create(:id => id).update(:text_en => text) }
   @compliance_descriptions.each do |id, values|
     risk_level_id = values.delete(:risk_level_id)
-    compliance_description = ComplianceDescription.first_or_create(:id => id)
+    compliance_description = ComplianceDescription.first_or_create({:id => id}, {:id => id, :risk_level_id => risk_level_id})
     compliance_description.attributes = values
-    compliance_description.risk_level = RiskLevel.get(risk_level_id)
     compliance_description.save
   end
   @categories.each { |id, text| FacilityCategory.first_or_create(:id => id).update(:text_en => text) }
