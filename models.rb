@@ -48,7 +48,7 @@ class Inspection
   property :inspection_date, Date
   property :in_compliance, Boolean
   property :closure_date, DateTime
-  property :report_number, Integer, :length => 11
+  property :report_number, Integer
 
   belongs_to :facility
   has n, :questions
@@ -60,7 +60,7 @@ class Question
   include DataMapper::Resource
 
   property :id, Serial
-  property :sort, Integer, :length => 11
+  property :sort, Integer
 
   belongs_to :inspection
   belongs_to :compliance_result
