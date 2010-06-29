@@ -3,6 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'geocoder'
 require 'dm-core'
+require 'dm-migrations'
 DataMapper::Logger.new($stdout, :debug)
 require 'models'
 
