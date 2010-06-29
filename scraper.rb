@@ -7,8 +7,8 @@ require 'dm-migrations'
 DataMapper::Logger.new($stdout, :debug)
 require 'models'
 
-INDEX_BASE_URL = 'http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=results_en&qt=fsi_s&sq_app_id=fsi'
-FACILITY_BASE_URL = "http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=details_en&sq_fs_fdid="
+INDEX_BASE_URL = 'http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=results_en&qt=fsi_s&sq_app_id=fsi&cookie=t'
+FACILITY_BASE_URL = "http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=details_en&cookie=t&sq_fs_fdid="
 @log = Logger.new(STDOUT)
 
 @compliance_results = {}
