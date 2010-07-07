@@ -1,0 +1,77 @@
+--- 
+hash: 79883d421c64ca14db95f7ad9054d280f1f8ce9c
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org
+specs: 
+- addressable: 
+    version: 2.1.2
+- data_objects: 
+    version: 0.10.2
+- extlib: 
+    version: 0.9.15
+- dm-core: 
+    version: 1.0.0
+- dm-do-adapter: 
+    version: 1.0.0
+- dm-migrations: 
+    version: 1.0.0
+- do_postgres: 
+    version: 0.10.2
+- dm-postgres-adapter: 
+    version: 1.0.0
+- fastercsv: 
+    version: 1.5.3
+- json_pure: 
+    version: 1.4.3
+- dm-serializer: 
+    version: 1.0.0
+- dm-timestamps: 
+    version: 1.0.0
+- exceptional: 
+    version: 2.0.15
+- newrelic_rpm: 
+    version: 2.12.3
+- nokogiri: 
+    version: 1.4.2
+- rack: 
+    version: 1.2.1
+- sinatra: 
+    version: "1.0"
+dependencies: 
+  sinatra: 
+    version: ">= 1.0"
+    group: 
+    - :default
+  dm-core: 
+    version: ">= 0"
+    group: 
+    - :default
+  dm-serializer: 
+    version: ">= 0"
+    group: 
+    - :default
+  dm-timestamps: 
+    version: ">= 0"
+    group: 
+    - :default
+  dm-migrations: 
+    version: ">= 0"
+    group: 
+    - :default
+  dm-postgres-adapter: 
+    version: ">= 0"
+    group: 
+    - :default
+  nokogiri: 
+    version: ">= 0"
+    group: 
+    - :default
+  exceptional: 
+    version: ">= 0"
+    group: 
+    - :default
+  newrelic_rpm: 
+    version: ">= 0"
+    group: 
+    - :default
