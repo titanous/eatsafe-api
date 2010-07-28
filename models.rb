@@ -151,3 +151,5 @@ class FacilityCoordinate
 
   property :created_at, DateTime
 end
+
+DataMapper.finalize
