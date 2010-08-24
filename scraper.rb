@@ -75,7 +75,13 @@ def scrape_index_page(index, full=true)
 end
 
 def scrape_facility_page(facility_id)
-  facility_xml = Nokogiri::XML(open(FACILITY_BASE_URL + facility_id)).at_xpath('//doc')
+  begin
+    facility_xml = Nokogiri::XML(open(FACILITY_BASE_URL + facility_id)).at_xpath('//doc')
+  rescue # timeout
+    sleep(5)
+    facility_xml = Nokogiri::XML(open(FACILITY_BASE_URL + facility_id)).at_xpath('//doc')
+  end
+
   facility = {:id => facility_id}
   Facility.get(facility_id).destroy rescue true
 
