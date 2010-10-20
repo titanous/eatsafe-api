@@ -30,6 +30,9 @@ task :cron do
   Rake::Task['scrape:geocode'].execute
 end
 
+task :environment do # stub for hoptoad:deploy
+end
+
 task :deploy do
   puts 'Deploying to Heroku...'
   system 'git push -f heroku master'
