@@ -3,12 +3,7 @@ require 'geocoder'
 
 configure :production do
   set :raise_errors, false
-
-  HoptoadNotifier.configure do |config|
-     config.api_key = ENV['HOPTOAD_API_KEY']
-     config.host    = 'logger.titanous.com'
-     config.port    = 80
-  end
+  require 'hoptoad_config'
 end
 
 get '/' do
