@@ -1,7 +1,9 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activesupport (3.0.1)
     addressable (2.2.2)
+    builder (2.1.2)
     data_objects (0.10.2)
       addressable (~> 2.1)
     dm-core (1.0.2)
@@ -23,9 +25,11 @@ GEM
       dm-core (~> 1.0.2)
     do_postgres (0.10.2)
       data_objects (= 0.10.2)
-    exceptional (2.0.26)
     extlib (0.9.15)
     fastercsv (1.5.3)
+    hoptoad_notifier (2.3.10)
+      activesupport
+      builder
     json_pure (1.4.6)
     newrelic_rpm (2.13.2)
     nokogiri (1.4.3.1)
@@ -42,7 +46,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-serializer
   dm-timestamps
-  exceptional
+  hoptoad_notifier
   newrelic_rpm
   nokogiri
   sinatra (>= 1.0)
