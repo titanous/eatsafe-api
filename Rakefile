@@ -1,5 +1,5 @@
 require 'bundler'
-Bundler.require(:default)
+Bundler.require
 require 'scraper'
 require 'hoptoad_config'
 require 'hoptoad_notifier/tasks'
