@@ -28,11 +28,11 @@ GEM
       data_objects (= 0.10.2)
     extlib (0.9.15)
     fastercsv (1.5.3)
-    heroku (1.10.17)
+    heroku (1.12.2)
       json_pure (>= 1.2.0, < 1.5.0)
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
-    hoptoad_notifier (2.3.10)
+    hoptoad_notifier (2.3.12)
       activesupport
       builder
     json_pure (1.4.6)
@@ -40,14 +40,16 @@ GEM
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     mime-types (1.16)
-    newrelic_rpm (2.13.2)
+    newrelic_rpm (2.13.3)
     nokogiri (1.4.3.1)
     rack (1.2.1)
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    sinatra (1.0)
-      rack (>= 1.0)
+    sinatra (1.1.0)
+      rack (~> 1.1)
+      tilt (~> 1.1)
+    tilt (1.1)
 
 PLATFORMS
   ruby
