@@ -1,11 +1,6 @@
 require 'models'
 require 'geocoder'
 
-configure :production do
-  set :raise_errors, false
-  require 'hoptoad_config'
-end
-
 get '/' do
   '<h1>Ottawa EatSafe API</h1><br>See <a href="http://github.com/titanous/eatsafe-api">http://github.com/titanous/eatsafe-api</a>'
 end
