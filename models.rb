@@ -1,7 +1,7 @@
 require 'dm-core'
 require 'dm-serializer'
 require 'dm-timestamps'
-require 'monkeys'
+require './monkeys'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/eatsafe')
 

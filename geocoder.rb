@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
-require 'monkeys'
+require './monkeys'
 
 YAHOO_BASE_URL = 'http://local.yahooapis.com/MapsService/V1/geocode?appid=2AnYx1bV34G8gR9rYmMQPTs.uwTEcw9bMv8HXPhThIzLoS5_EjRXBcyQpNsYKg--&'
 

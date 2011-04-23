@@ -1,5 +1,5 @@
-require 'models'
-require 'geocoder'
+require './models'
+require './geocoder'
 
 get '/' do
   '<h1>Ottawa EatSafe API</h1><br>See <a href="http://github.com/titanous/eatsafe-api">http://github.com/titanous/eatsafe-api</a>'

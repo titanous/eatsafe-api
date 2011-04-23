@@ -1,11 +1,11 @@
 require 'logger'
 require 'nokogiri'
 require 'open-uri'
-require 'geocoder'
+require './geocoder'
 require 'dm-core'
 require 'dm-migrations'
 DataMapper::Logger.new($stdout, :debug)
-require 'models'
+require './models'
 
 INDEX_BASE_URL = 'http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=results_en&qt=fsi_s&sq_app_id=fsi&cookie=t'
 FACILITY_BASE_URL = "http://ottawa.ca/cgi-bin/search/inspections/q.pl?ss=details_en&cookie=t&sq_fs_fdid="

@@ -1,6 +1,6 @@
 require 'bundler'
 Bundler.require
-require 'scraper'
+require './scraper'
 
 namespace :scrape do
   desc "Full scrape"
