@@ -8,4 +8,6 @@ gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'nokogiri'
 gem 'newrelic_rpm'
+gem 'json'
+
 gem 'thin', :require => false

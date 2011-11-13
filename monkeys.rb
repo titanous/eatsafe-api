@@ -1,5 +1,5 @@
 class Struct
-  def to_json
+  def to_json(*args)
     hash = {}
     each_pair { |name, value| hash[name] = value }
     hash.to_json

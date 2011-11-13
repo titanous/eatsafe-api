@@ -54,6 +54,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-serializer
   dm-timestamps
+  json
   newrelic_rpm
   nokogiri
   sinatra (>= 1.0)
