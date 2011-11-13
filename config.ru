@@ -1,5 +1,5 @@
 require 'bundler'
 Bundler.require
 
-require 'eatsafe'
+require './eatsafe'
 run Sinatra::Application

@@ -8,5 +8,4 @@ gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'nokogiri'
 gem 'newrelic_rpm'
-
-gem 'heroku', :group => :development, :require => nil
+gem 'thin', :require => false
