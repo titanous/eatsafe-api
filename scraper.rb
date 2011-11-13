@@ -150,8 +150,9 @@ def geocode
       facility.update(:lat => coords.lat, :lon => coords.lon)
     else
       begin
-        lat, lon = yahoo_geocode(:street => "#{facility.street_number} #{facility.street_name}", :city => facility.city)
+        lat, lon = yahoo_geocode("#{facility.street_number} #{facility.street_name}, #{facility.city}, ON, Canada")
       rescue
+        puts 'lookup failed'
         sleep(5)
         next
       end
