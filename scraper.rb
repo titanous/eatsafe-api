@@ -153,7 +153,6 @@ def geocode
         lat, lon = yahoo_geocode("#{facility.street_number} #{facility.street_name}, #{facility.city}, ON, Canada")
       rescue
         puts 'lookup failed'
-        sleep(5)
         next
       end
       facility.update(:lat => lat, :lon => lon)
