@@ -8,7 +8,7 @@ A simple little app that describes the safety of Ottawa's restaurants in JSON.
     /facility/:id
 The complete facility record including location and inspections.
 
-[http://eatsafe-api.herokuapp.com/facility/B789A388-ED35-490D-A68F-518EA3893A88](http://eatsafe-api.herokuapp.com/facility/B789A388-ED35-490D-A68F-518EA3893A88)
+[http://eatsafe-api.herokuapp.com/facility/32FBDA31-C784-4640-A2DF-AA7D934B7356](http://eatsafe-api.herokuapp.com/facility/32FBDA31-C784-4640-A2DF-AA7D934B7356)
 
 ### Nearby
     /facilities/nearby
